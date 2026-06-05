@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Check, Trash2, AlertCircle, Minus, ArrowUp } from 'lucide-react';
+import { Check, Trash2, Minus, ArrowUp } from 'lucide-react';
 
 const PRIORITY_ICONS = {
   high: ArrowUp,
