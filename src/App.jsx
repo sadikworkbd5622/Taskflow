@@ -1,8 +1,10 @@
-import { useMemo, useState } from 'react';
+import { useMemo } from 'react';
 import { useLocalStorage } from './hooks/useLocalStorage';
 import Sidebar from './components/Sidebar';
 import MainPanel from './components/MainPanel';
 import './App.css';
+
+const CATEGORIES = ['All', 'Personal', 'Work', 'Shopping', 'Other'];
 
 export default function App() {
   const [todos, setTodos] = useLocalStorage('pro-todos', []);
@@ -32,8 +34,6 @@ export default function App() {
   const activeCount = useMemo(() => todos.filter((t) => !t.completed).length, [todos]);
   const completedCount = useMemo(() => todos.filter((t) => t.completed).length, [todos]);
   const completionRate = todos.length > 0 ? Math.round((completedCount / todos.length) * 100) : 0;
-
-  const CATEGORIES = ['All', 'Personal', 'Work', 'Shopping', 'Other'];
 
   const categoryCounts = useMemo(() => {
     const counts = {};
